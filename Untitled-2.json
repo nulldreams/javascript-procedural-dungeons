@@ -1,0 +1,23 @@
+[
+    {
+        "id": 0,
+        "tile": "starter",
+        "src": "./assets/tiles/starter.png",
+        "branches_directions": [ "bottom" ],
+        "branches": [ { "id": 1, "direction": "bottom" } ]
+    },
+    {
+        "id": 1,
+        "tile": "mid",
+        "src": "./assets/tiles/mid.png",
+        "branches_directions": [ "top", "bottom" ],
+        "branches": [ { "id": 2, "direction": "bottom" } ]
+    },
+    {
+        "id": 2,
+        "tile": "last",
+        "src": "./assets/tiles/last.png",
+        "branches_directions": [ "top" ],
+        "branches": []
+    }
+]
