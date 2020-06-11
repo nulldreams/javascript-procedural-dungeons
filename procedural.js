@@ -12,7 +12,7 @@ const randomTile = (first) => {
     return tiles[random]
 }
 
-const dungeonTree = [[],[],[],[]]
+const dungeonTree = Array(4).fill().map(() => Array(4).fill([]))
 const levels = 4
 const initialPosition = { x: 0, y: 0 }
 const lastPosition = initialPosition
@@ -24,7 +24,7 @@ const wait = (ms) => new Promise((resolve) => {
 })
 
 window.onload = () => {
-    const canvas = document.getElementById('game').getContext('2d')    
+    const canvas = document.getElementById('game').getContext('2d')
     const generateDungeon = async (column) => {
         for (let i = 0; i < levels; i++) {
             if (!dungeonTree[0]) addRoom(starter, i, { x: column, y: i * 32 }, canvas, column)
@@ -32,17 +32,18 @@ window.onload = () => {
             if (i === levels - 1) addRoom(last, i, { x: column, y: i * 32 }, canvas, column)
             await wait(500)
         }
-        if (column <= 0) column = 1
+        // if (column <= 0) column = 1
         if (column < 4) generateDungeon(column * 32)
     }
     
     const addRoom = (tile, id, position, canvas, column) => {
-        dungeonTree[0][column].push({
-            "id": id,
-            "tile": tile.name,
-            "src": tile.src,
-            "position": position,
-        })
+        // console.log(dungeonTree[column][id])
+        // dungeonTree[column][id].push({
+        //     "id": id,
+        //     "tile": tile.name,
+        //     "src": tile.src,
+        //     "position": position,
+        // })
         createImage(tile.src, canvas, position)
     }
     
